@@ -1,0 +1,62 @@
+<h1 id="tableLabel">Studenci</h1>
+
+<p>Przykładowa tabelka.</p>
+
+<p *ngIf="!studenci" [@welcomeOut]><em>Witaj</em></p>
+
+
+  
+  <div *ngFor="let student of studenci">    
+    <app-rekord [dane]="student" (usuniecie)="Usun($event)"></app-rekord>
+  </div>
+
+<br />
+<h3>Nowy student</h3>
+
+Imie
+<input name="txtImie" id="txtImie" [(ngModel)]="txtImie" required maxlength="15" pattern="^[A-Z][a-z]+$" #imie="ngModel" />
+<div *ngIf="imie.invalid && (imie.dirty || imie.touched)" class="alert alert-danger">
+  <div *ngIf="imie.errors.required">
+    Pole jest wymagane.
+  </div>
+  <div *ngIf="imie.errors.maxlength">
+    Maksymalna ilosc znakow to {{timie.errors.maxlength?.requiredLength}}.
+  </div>
+  <div *ngIf="imie.errors.pattern">
+    Niewłaściwy format danych.
+  </div>
+</div>
+<br />
+Nazwisko
+<input name="txtNazwisko" id="txtNazwisko" [(ngModel)]="txtNazwisko" required maxlength="15" pattern="^[A-Z][a-z]+$" #nazwisko="ngModel" />
+<div *ngIf="nazwisko.invalid && (nazwisko.dirty || nazwisko.touched)" class="alert alert-danger">
+  <div *ngIf="nazwisko.errors.required">
+    Pole jest wymagane.
+  </div>
+  <div *ngIf="nazwisko.errors.maxlength">
+    Maksymalna ilosc znakow to {{timie.errors.maxlength?.requiredLength}}.
+  </div>
+  <div *ngIf="nazwisko.errors.pattern">
+    Niewłaściwy format danych.
+  </div>
+</div>
+<br />
+Pesel
+<input name="txtPesel" id="txtPesel" [(ngModel)]="txtPesel" required maxlength="11" pattern="^[0-9]+$" #pesel="ngModel" />
+<div *ngIf="pesel.invalid && (pesel.dirty || pesel.touched)" class="alert alert-danger">
+  <div *ngIf="pesel.errors.required">
+    Pole jest wymagane.
+  </div>
+  <div *ngIf="pesel.errors.maxlength">
+    Maksymalna ilosc znakow to {{timie.errors.maxlength?.requiredLength}}.
+  </div>
+  <div *ngIf="pesel.errors.pattern">
+    Niewłaściwy format danych.
+  </div>
+  <br />
+  </div>
+  <div>
+    <button type="button" (click)="DodajStudenta()">Dodaj</button>
+  </div>
+  
+  

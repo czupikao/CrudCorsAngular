@@ -1,0 +1,8 @@
+{{student.studentId}}
+{{student.imie}}
+{{student.nazwisko}}
+{{student.pesel}}
+<button (click)="usun()">X</button>
+<div (click)="toggle()" [@openClose]="isOpen ? 'open' : 'closed'" class="rekord-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
